@@ -355,3 +355,90 @@ ul{margin:0;padding:0;list-style:none}
 
 html{overflow-x:hidden}
 .section{overflow:hidden}
+
+/* ===== v1.1 - новая структура ===== */
+/* Шапка: 3 пункта - меню видно с планшета */
+@media (min-width:720px){
+  .nav{display:flex}
+  .burger{display:none}
+  .header-cta{display:inline-flex}
+  .mobile-menu{display:none}
+}
+
+/* Первый экран по центру */
+.hero-center{align-items:center;text-align:center}
+.hero-center .hero-copy{max-width:1100px;margin:0 auto}
+.hero-center .eyebrow{justify-content:center;font-size:14px;letter-spacing:.22em}
+.hero-center .eyebrow::after{content:"";width:28px;height:1px;background:currentColor;opacity:.6}
+.hero-center .h-display{font-size:clamp(44px,9vw,128px);line-height:.95;margin-bottom:44px}
+.hero-center .hero-actions{justify-content:center;margin-bottom:0}
+
+/* Карточки */
+.card-num{display:block}
+.subhead .accent{font-size:1.1em}
+
+/* Как устроена работа: 2 + 3 + 1 */
+.steps{display:grid;gap:14px;grid-template-columns:1fr}
+.step{padding:clamp(24px,3vw,34px);display:flex;flex-direction:column;gap:14px}
+.step p{color:var(--text-2);font-size:16px}
+.step ul{display:grid;gap:0}
+.step li{position:relative;padding:10px 0 10px 22px;color:var(--text-2);font-size:15px;border-top:1px solid rgba(255,255,255,.08)}
+.step li::before{content:"";position:absolute;left:0;top:18px;width:8px;height:8px;border-radius:50%;background:var(--silver);opacity:.7}
+.step-wide{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start}
+.step-wide h3{margin-bottom:10px}
+.step-main{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.22)}
+.step-row{flex-direction:row;align-items:center;flex-wrap:wrap;gap:12px 24px}
+.step-row p{color:var(--text)}
+@media (min-width:860px){
+  .steps{grid-template-columns:repeat(6,minmax(0,1fr))}
+  .step-wide{grid-column:span 3}
+  .step-main{grid-column:span 2;min-height:340px}
+  .step-row{grid-column:span 6}
+}
+
+/* Услуги */
+.tag{align-self:flex-start;display:inline-block;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:7px 12px;border-radius:var(--r-pill);background:rgba(255,255,255,.1);border:1px solid var(--glass-border);color:var(--text-2)}
+.price{font-size:clamp(34px,4vw,48px);font-weight:800;letter-spacing:-.04em;line-height:1}
+.price small{font-size:16px;font-weight:500;letter-spacing:0;color:var(--text-2);margin-left:8px}
+.svc-desc{color:var(--text-2);font-size:16px}
+.lbl{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--text-3);margin-bottom:10px}
+.svc-main{display:grid;gap:28px;padding:clamp(28px,4vw,52px);background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.24)}
+.svc-col{display:flex;flex-direction:column;gap:18px}
+.svc-main .h-card{font-size:clamp(26px,3vw,36px)}
+.svc-main .btn{align-self:flex-start;margin-top:6px}
+.svc-main .btn-note{margin-top:-6px}
+@media (min-width:980px){.svc-main{grid-template-columns:1fr 1fr;gap:56px}}
+.checks{display:grid;gap:10px}
+.checks li{position:relative;padding-left:30px;font-size:15px;color:var(--text)}
+.checks li::before{content:"";position:absolute;left:0;top:3px;width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.12) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/10px no-repeat;border:1px solid var(--glass-border)}
+.checks li.plus{color:var(--silver)}
+.checks li.plus::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M12 5v14M5 12h14'/%3E%3C/svg%3E")}
+.dots{display:grid;gap:8px}
+.dots li{position:relative;padding-left:18px;font-size:15px;color:var(--text-2)}
+.dots li::before{content:"";position:absolute;left:2px;top:10px;width:6px;height:6px;border-radius:50%;background:var(--silver);opacity:.6}
+.svc-pair{display:grid;gap:14px}
+@media (min-width:980px){.svc-pair{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.svc-pair .price-card{gap:22px}
+.important b{font-weight:700}
+
+/* Эмберг Манасарян */
+.about-text .about-role{font-size:15px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3)}
+.about-quote{margin:0;padding:0 0 0 22px;border-left:2px solid rgba(255,255,255,.3);font-size:clamp(19px,1.8vw,23px);line-height:1.55;color:var(--text)}
+.stats{display:grid;gap:12px;margin-top:clamp(40px,5vw,64px);grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (min-width:980px){.stats{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.stat{padding:clamp(20px,2.5vw,28px);display:flex;flex-direction:column;gap:8px}
+.stat b{font-size:clamp(28px,3.4vw,44px);font-weight:800;letter-spacing:-.04em;line-height:1}
+.stat span{font-size:14px;color:var(--text-2);line-height:1.4}
+.niches{margin-top:28px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips li{padding:10px 16px;border-radius:var(--r-pill);font-size:14px;font-weight:500;background:rgba(255,255,255,.07);border:1px solid var(--glass-border)}
+.btn .ico{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+/* FAQ: несколько абзацев */
+.faq .ans p+p{margin-top:12px}
+
+/* Подвал */
+@media (min-width:980px){.footer-grid-4{grid-template-columns:1.3fr 1fr 1.1fr 1.2fr}}
+.footnote{margin-top:14px;font-size:12px;color:var(--text-3)}
+.about-text .eyebrow{font-size:13px;color:var(--text-3)}
+.about-text .about-role{font-size:14px;line-height:1.5}
