@@ -80,6 +80,106 @@
     document.querySelectorAll(".hero .reveal").forEach(function (el) { el.classList.add("in"); });
   });
 
+  /* ---------- Stage cards: flip pop-up ---------- */
+  (function () {
+    var modal = document.querySelector(".stage-modal");
+    if (!modal) return;
+    var backdrop = modal.querySelector(".stage-backdrop");
+    var flip = modal.querySelector(".stage-flip");
+    var front = modal.querySelector(".stage-front");
+    var back = modal.querySelector(".stage-back");
+    var inner = modal.querySelector(".stage-back-inner");
+    var EASE = "cubic-bezier(.22,1,.36,1)";
+    var DUR = reduce ? 1 : 750;
+    var current = null, busy = false;
+
+    function cardBox(card) {
+      var r = card.getBoundingClientRect();
+      return { left: r.left + "px", top: r.top + "px", width: r.width + "px", height: r.height + "px" };
+    }
+    function targetBox() {
+      var vw = window.innerWidth, vh = window.innerHeight;
+      var w = Math.min(620, vw - 32);
+      flip.style.cssText = "left:0;top:0;width:" + w + "px;height:auto;visibility:hidden";
+      var h = Math.min(inner.scrollHeight + back.lastElementChild.offsetHeight + 2, vh - 48);
+      flip.style.cssText = "";
+      return { left: (vw - w) / 2 + "px", top: (vh - h) / 2 + "px", width: w + "px", height: h + "px" };
+    }
+    function anim(el, from, to) {
+      return el.animate([from, to], { duration: DUR, easing: EASE, fill: "forwards" }).finished;
+    }
+    function apply(box, rot) {
+      flip.style.left = box.left; flip.style.top = box.top;
+      flip.style.width = box.width; flip.style.height = box.height;
+      flip.style.transform = "rotateY(" + rot + "deg)";
+    }
+
+    function open(card) {
+      if (busy || current) return;
+      var tpl = document.getElementById("stage-" + card.getAttribute("data-stage"));
+      if (!tpl) return;
+      busy = true; current = card;
+      var sbw = window.innerWidth - document.documentElement.clientWidth;
+      body.classList.add("stage-open");
+      if (sbw) body.style.paddingRight = sbw + "px";
+      front.className = "stage-face stage-front step " + (card.classList.contains("step-main") ? "step-main" : "step-full");
+      front.innerHTML = card.innerHTML;
+      inner.innerHTML = "";
+      inner.appendChild(tpl.content.cloneNode(true));
+      inner.scrollTop = 0;
+      var title = inner.querySelector("h3");
+      if (title) { title.id = "stage-title"; flip.setAttribute("aria-labelledby", "stage-title"); }
+      modal.hidden = false;
+      var from = cardBox(card), to = targetBox();
+      apply(from, 0);
+      card.style.visibility = "hidden";
+      anim(backdrop, { opacity: 0 }, { opacity: 1 });
+      var p = anim(flip,
+        { left: from.left, top: from.top, width: from.width, height: from.height, transform: "rotateY(0deg)" },
+        { left: to.left, top: to.top, width: to.width, height: to.height, transform: "rotateY(180deg)" });
+      p.then(function () {
+        apply(to, 180);
+        flip.getAnimations().forEach(function (a) { a.cancel(); });
+        busy = false;
+        flip.focus({ preventScroll: true });
+      });
+    }
+
+    function close() {
+      if (busy || !current) return;
+      busy = true;
+      var card = current;
+      var from = { left: flip.style.left, top: flip.style.top, width: flip.style.width, height: flip.style.height };
+      var to = cardBox(card);
+      anim(backdrop, { opacity: 1 }, { opacity: 0 });
+      anim(flip,
+        { left: from.left, top: from.top, width: from.width, height: from.height, transform: "rotateY(180deg)" },
+        { left: to.left, top: to.top, width: to.width, height: to.height, transform: "rotateY(0deg)" })
+        .then(function () {
+          card.style.visibility = "";
+          modal.hidden = true;
+          flip.style.cssText = "";
+          modal.querySelectorAll("*").forEach(function (el) { el.getAnimations && el.getAnimations().forEach(function (a) { a.cancel(); }); });
+          body.classList.remove("stage-open");
+          body.style.paddingRight = "";
+          current = null; busy = false;
+          card.focus({ preventScroll: true });
+        });
+    }
+
+    document.querySelectorAll(".step[data-stage]").forEach(function (card) {
+      card.addEventListener("click", function () { open(card); });
+      card.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(card); }
+      });
+    });
+    // закрытие по клику в любую область экрана
+    modal.addEventListener("click", close);
+    document.addEventListener("keydown", function (e) {
+      if (current && (e.key === "Escape" || e.key === "Enter" || e.key === " ")) { e.preventDefault(); close(); }
+    });
+  })();
+
   /* ---------- Cookie consent ---------- */
   var KEY = "emberg_consent";
   var cookie = document.querySelector(".cookie");

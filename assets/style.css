@@ -377,24 +377,50 @@ html{overflow-x:hidden}
 .card-num{display:block}
 .subhead .accent{font-size:1.1em}
 
-/* Как устроена работа: 2 + 3 + 1 */
+/* Как устроена работа: 1 + 3 + 1, карточки раскрываются переворотом */
 .steps{display:grid;gap:14px;grid-template-columns:1fr}
-.step{padding:clamp(24px,3vw,34px);display:flex;flex-direction:column;gap:14px}
+.step{padding:clamp(24px,3vw,34px);display:flex;flex-direction:column;gap:14px;cursor:pointer;outline:none}
+.step:focus-visible{border-color:var(--glass-border-hi);box-shadow:0 0 0 3px rgba(201,210,222,.35)}
 .step p{color:var(--text-2);font-size:16px}
-.step ul{display:grid;gap:0}
-.step li{position:relative;padding:10px 0 10px 22px;color:var(--text-2);font-size:15px;border-top:1px solid rgba(255,255,255,.08)}
-.step li::before{content:"";position:absolute;left:0;top:18px;width:8px;height:8px;border-radius:50%;background:var(--silver);opacity:.7}
-.step-wide{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start}
-.step-wide h3{margin-bottom:10px}
+.step-body h3{margin-bottom:10px}
 .step-main{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.22)}
-.step-row{flex-direction:row;align-items:center;flex-wrap:wrap;gap:12px 24px}
-.step-row p{color:var(--text)}
+.step-main .step-body{flex:1}
+.step-full .card-num{flex:none}
+.step-more{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;font-size:14px;font-weight:600;color:var(--text);padding:9px 10px 9px 16px;border-radius:var(--r-pill);background:rgba(255,255,255,.08);border:1px solid var(--glass-border);transition:background .3s,border-color .3s}
+.step-more i{position:relative;width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.14)}
+.step-more i::before,.step-more i::after{content:"";position:absolute;left:50%;top:50%;width:8px;height:1.5px;margin:-.75px 0 0 -4px;background:var(--white);border-radius:1px}
+.step-more i::after{transform:rotate(90deg)}
+.step:hover .step-more{background:rgba(255,255,255,.14);border-color:var(--glass-border-hi)}
 @media (min-width:860px){
   .steps{grid-template-columns:repeat(6,minmax(0,1fr))}
-  .step-wide{grid-column:span 3}
-  .step-main{grid-column:span 2;min-height:340px}
-  .step-row{grid-column:span 6}
+  .step-full{grid-column:span 6;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px}
+  .step-full .step-more{align-self:center}
+  .step-main{grid-column:span 2;min-height:300px}
 }
+
+/* Pop-up этапа */
+.stage-modal{position:fixed;inset:0;z-index:90;perspective:1800px}
+.stage-modal[hidden]{display:none}
+.stage-backdrop{position:absolute;inset:0;background:rgba(6,11,22,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);opacity:0}
+.stage-flip{position:fixed;transform-style:preserve-3d;outline:none;cursor:pointer}
+.stage-face{position:absolute;inset:0;border-radius:var(--r-lg);border:1px solid rgba(255,255,255,.22);backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;box-shadow:0 30px 80px -20px rgba(0,0,0,.6)}
+.stage-front{background:linear-gradient(160deg,#25375C 0%,#16233F 100%)}
+.stage-front.step-main{min-height:0}
+.stage-back{transform:rotateY(180deg);background:linear-gradient(160deg,#22355A 0%,#111C33 100%);display:flex;flex-direction:column}
+.stage-back-inner{flex:1;overflow:auto;padding:clamp(26px,4vw,40px);overscroll-behavior:contain}
+.stage-back-inner .card-num{display:block;font-size:36px;margin-bottom:6px}
+.stage-back-inner .h-card{margin-bottom:18px}
+.stage-back-inner p{color:var(--text-2);font-size:15px}
+.stage-back-inner ul{display:grid;margin-bottom:14px}
+.stage-back-inner li{position:relative;padding:9px 0 9px 22px;color:var(--text);font-size:15px;line-height:1.5;border-top:1px solid rgba(255,255,255,.08)}
+.stage-back-inner li::before{content:"";position:absolute;left:0;top:17px;width:8px;height:8px;border-radius:50%;background:var(--silver);opacity:.7}
+.stage-lbl{font-size:12px!important;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3)!important;margin:18px 0 8px}
+.stage-lbl:first-of-type{margin-top:0}
+.stage-note{margin-top:14px;padding:14px 16px;border-radius:var(--r-md);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);font-size:14px!important}
+.stage-group+.stage-group{margin-top:22px}
+.stage-when{margin:12px 0 6px;color:var(--text)!important;font-weight:600}
+.stage-close-hint{flex:none;padding:12px 20px 16px;text-align:center;font-size:13px;color:var(--text-3);border-top:1px solid rgba(255,255,255,.08)}
+body.stage-open{overflow:hidden}
 
 /* Услуги */
 .tag{align-self:flex-start;display:inline-block;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:7px 12px;border-radius:var(--r-pill);background:rgba(255,255,255,.1);border:1px solid var(--glass-border);color:var(--text-2)}
