@@ -464,8 +464,8 @@ html{overflow-x:hidden}
 .plans-note{margin-top:20px;font-size:15px;color:var(--text-2)}
 @supports (grid-template-rows:subgrid){
   @media (min-width:1000px){
-    .plans{max-width:none;grid-template-columns:minmax(150px,190px) repeat(3,minmax(0,1fr));grid-template-rows:repeat(8,auto);column-gap:16px;row-gap:0}
-    .plan,.plan-criteria{display:grid;grid-row:span 8;grid-template-rows:subgrid;grid-template-columns:minmax(0,1fr)}
+    .plans{max-width:none;grid-template-columns:minmax(150px,190px) repeat(3,minmax(0,1fr));grid-template-rows:repeat(7,auto);column-gap:16px;row-gap:0}
+    .plan,.plan-criteria{display:grid;grid-row:span 7;grid-template-rows:subgrid;grid-template-columns:minmax(0,1fr)}
     .plan-criteria .plan-head,.plan-criteria .plan-cta{padding:0;border:0}
     .plan-criteria .plan-row{padding:16px 0;border-top:1px solid var(--glass-border)}
     .plan-criteria .plan-row span{font-size:16px;font-weight:700;line-height:1.35;color:var(--text)}
@@ -483,3 +483,10 @@ html{overflow-x:hidden}
   .plan-cta .btn{font-size:15px}
 }
 .plan-row p.plan-plus{margin-top:8px}
+.section-head-sub{margin-top:clamp(64px,8vw,104px)}
+@supports (grid-template-rows:subgrid){
+  @media (min-width:1000px){
+    .plans{grid-template-rows:repeat(7,auto)}
+    .plan,.plan-criteria{grid-row:span 7}
+  }
+}
