@@ -185,6 +185,31 @@
     });
   })();
 
+  /* ---------- FAQ: плавное раскрытие ---------- */
+  document.querySelectorAll(".faq details").forEach(function (d) {
+    var summary = d.querySelector("summary");
+    var ans = d.querySelector(".ans");
+    if (!summary || !ans || reduce || !ans.animate) return;
+    var anim = null;
+    var opts = { duration: 450, easing: "cubic-bezier(.22,1,.36,1)" };
+    summary.addEventListener("click", function (e) {
+      e.preventDefault();
+      if (anim) anim.cancel();
+      if (!d.open) {
+        d.open = true;
+        d.classList.add("is-open");
+        var h = ans.offsetHeight;
+        anim = ans.animate([{ height: "0px", opacity: 0 }, { height: h + "px", opacity: 1 }], opts);
+        anim.onfinish = function () { anim = null; };
+      } else {
+        d.classList.remove("is-open");
+        var h2 = ans.offsetHeight;
+        anim = ans.animate([{ height: h2 + "px", opacity: 1 }, { height: "0px", opacity: 0 }], opts);
+        anim.onfinish = function () { d.open = false; anim = null; };
+      }
+    });
+  });
+
   /* ---------- Cookie consent ---------- */
   var KEY = "emberg_consent";
   var cookie = document.querySelector(".cookie");

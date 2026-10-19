@@ -553,3 +553,9 @@ body.stage-open{overflow:hidden}
 .wordmark .logo{height:20px;width:auto;display:block}
 .footer .wordmark .logo{height:22px}
 .wordmark .sub{margin-left:.8em}
+/* FAQ: плавное раскрытие (анимация в main.js) */
+.faq .ans{overflow:hidden}
+.faq details[open]:not(.is-open) summary .pm{transform:none;background:rgba(255,255,255,.08)}
+.faq details.is-open summary .pm{transform:rotate(45deg);background:rgba(255,255,255,.18)}
+.faq details{transition:background .4s,border-color .4s}
+.faq details.is-open{background:var(--glass-2)}
