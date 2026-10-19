@@ -548,3 +548,8 @@ body.stage-open{overflow:hidden}
 #how,#about{overflow:visible;overflow-x:clip}
 .stat b{white-space:nowrap;font-size:clamp(26px,2.9vw,40px)}
 .wordmark{font-family:"Manrope",ui-sans-serif,system-ui,sans-serif}
+/* Логотип файлом */
+.wordmark{align-items:center}
+.wordmark .logo{height:20px;width:auto;display:block}
+.footer .wordmark .logo{height:22px}
+.wordmark .sub{margin-left:.8em}
