@@ -186,7 +186,7 @@
   })();
 
   /* ---------- FAQ: плавное раскрытие ---------- */
-  document.querySelectorAll(".faq details, .cases details").forEach(function (d) {
+  document.querySelectorAll(".faq details").forEach(function (d) {
     var summary = d.querySelector("summary");
     var ans = d.querySelector(".ans");
     if (!summary || !ans || reduce || !ans.animate) return;
