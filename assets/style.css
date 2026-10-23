@@ -568,13 +568,6 @@ body.stage-open{overflow:hidden}
 @media (prefers-reduced-motion:reduce){.hero .reveal{animation:none}}
 
 
-/* Cases - карточки с переворотом, как этапы */
-.case .tag{margin-bottom:2px}
-.case-metrics{display:grid;margin-top:6px}
-.case-metrics li{display:grid;gap:4px;padding:12px 0;border-top:1px solid rgba(255,255,255,.1)}
-.case-metrics li:last-child{padding-bottom:0}
-.case-metrics b{font-size:clamp(26px,2.6vw,32px);font-weight:800;letter-spacing:-.035em;line-height:1.05;color:var(--white)}
-.case-metrics span{font-size:14px;line-height:1.45;color:var(--text-2)}
 .stage-back-inner .tag{margin-bottom:14px}
 
 
@@ -617,3 +610,22 @@ body.stage-open{overflow:hidden}
 .story-col .stage-lbl{margin-top:0}
 @media (max-width:719px){.story-panel{width:92vw}.story-row{padding:18px;gap:14px}.story-num{display:none}}
 body.story-open{overflow:hidden}
+
+
+/* Ритм секций и светлые зоны (23.10) */
+.section{padding:clamp(64px,7.5vw,112px) 0}
+#contact{padding:clamp(32px,4vw,56px) 0;overflow:visible}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:clamp(120px,16vw,220px);background:linear-gradient(180deg,rgba(11,19,36,0),var(--bg));pointer-events:none;z-index:-1}
+.section-light::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse 46% 30% at 16% 34%,rgba(143,166,200,.16),rgba(143,166,200,0) 72%)}
+.section-light-r::before{background:radial-gradient(ellipse 46% 26% at 84% 30%,rgba(143,166,200,.14),rgba(143,166,200,0) 72%)}
+/* финальный экран - светлая карточка */
+.final-light{background:linear-gradient(150deg,#F6F8FB 0%,#DCE4EE 50%,#B4C4DA 100%);border-color:rgba(255,255,255,.6);box-shadow:0 40px 100px -40px rgba(143,166,200,.55),0 1px 0 rgba(255,255,255,.9) inset;color:var(--navy)}
+.final-light .final-glow{background:#FFFFFF;opacity:.7;top:-40%}
+.final-light .h-section{color:var(--navy)}
+.final-light .accent{background:linear-gradient(120deg,#1B2A4A 0%,#3C5A8C 60%,#5F7EB0 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.final-light .lead{color:rgba(27,42,74,.78)}
+.final-light .btn-primary{background:var(--navy);color:var(--white);box-shadow:0 14px 34px -12px rgba(27,42,74,.6),0 0 0 1px rgba(27,42,74,.2) inset}
+.final-light .btn-primary:hover{box-shadow:0 20px 40px -12px rgba(27,42,74,.7)}
+.final-light .alt{color:rgba(27,42,74,.6)}
+.final-light .alt a{color:var(--navy)}
+.final-light .alt a:hover{color:#3C5A8C}
