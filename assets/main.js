@@ -185,6 +185,60 @@
     });
   })();
 
+  /* ---------- Истории проектов: панель справа ---------- */
+  (function () {
+    var drawer = document.querySelector(".story-drawer");
+    if (!drawer) return;
+    var backdrop = drawer.querySelector(".story-backdrop");
+    var panel = drawer.querySelector(".story-panel");
+    var inner = drawer.querySelector(".story-inner");
+    var EASE = "cubic-bezier(.22,1,.36,1)";
+    var DUR = reduce ? 1 : 700;
+    var R = "var(--r-lg) 0 0 var(--r-lg)";
+    var current = null, busy = false;
+    function anim(el, frames) { return el.animate(frames, { duration: DUR, easing: EASE, fill: "forwards" }).finished; }
+    function open(row) {
+      if (busy || current) return;
+      var tpl = document.getElementById("story-" + row.getAttribute("data-story"));
+      if (!tpl) return;
+      busy = true; current = row;
+      var sbw = window.innerWidth - document.documentElement.clientWidth;
+      document.body.classList.add("story-open");
+      if (sbw) document.body.style.paddingRight = sbw + "px";
+      inner.innerHTML = ""; inner.appendChild(tpl.content.cloneNode(true)); inner.scrollTop = 0;
+      var h = inner.querySelector("h3"); if (h) h.id = "story-title";
+      drawer.hidden = false;
+      anim(backdrop, [{ opacity: 0 }, { opacity: 1 }]);
+      anim(panel, [
+        { clipPath: "inset(0 100% 0 0 round " + R + ")", transform: "translateX(-40px)" },
+        { clipPath: "inset(0 0% 0 0 round " + R + ")", transform: "translateX(0)" }
+      ]).then(function () { busy = false; panel.focus({ preventScroll: true }); });
+    }
+    function close() {
+      if (busy || !current) return;
+      busy = true; var row = current;
+      anim(backdrop, [{ opacity: 1 }, { opacity: 0 }]);
+      anim(panel, [
+        { clipPath: "inset(0 0% 0 0 round " + R + ")", transform: "translateX(0)" },
+        { clipPath: "inset(0 100% 0 0 round " + R + ")", transform: "translateX(-40px)" }
+      ]).then(function () {
+        drawer.hidden = true;
+        drawer.querySelectorAll("*").forEach(function (el) { el.getAnimations && el.getAnimations().forEach(function (a) { a.cancel(); }); });
+        document.body.classList.remove("story-open");
+        document.body.style.paddingRight = "";
+        current = null; busy = false;
+        row.focus({ preventScroll: true });
+      });
+    }
+    document.querySelectorAll(".story-row[data-story]").forEach(function (row) {
+      row.addEventListener("click", function () { open(row); });
+    });
+    drawer.addEventListener("click", close);
+    document.addEventListener("keydown", function (e) {
+      if (current && (e.key === "Escape" || e.key === "Enter" || e.key === " ")) { e.preventDefault(); close(); }
+    });
+  })();
+
   /* ---------- FAQ: плавное раскрытие ---------- */
   document.querySelectorAll(".faq details").forEach(function (d) {
     var summary = d.querySelector("summary");

@@ -576,3 +576,44 @@ body.stage-open{overflow:hidden}
 .case-metrics b{font-size:clamp(26px,2.6vw,32px);font-weight:800;letter-spacing:-.035em;line-height:1.05;color:var(--white)}
 .case-metrics span{font-size:14px;line-height:1.45;color:var(--text-2)}
 .stage-back-inner .tag{margin-bottom:14px}
+
+
+/* Истории проектов - список как FAQ + панель справа */
+.stories{display:grid;gap:10px;max-width:900px}
+.story-row{width:100%;display:flex;align-items:center;gap:18px;padding:20px 22px;border-radius:var(--r-md);text-align:left;color:var(--text);font:inherit;cursor:pointer;transition:opacity .8s var(--ease),transform .6s var(--ease),border-color .4s,background .4s}
+.story-row:hover,.story-row:focus-visible{border-color:var(--glass-border-hi);background:var(--glass-2);transform:translateX(6px);outline:none}
+.story-num{flex:none;font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--text-3)}
+.story-txt{flex:1;display:grid;gap:4px;min-width:0}
+.story-niche{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3)}
+.story-title{font-size:clamp(17px,1.5vw,20px);font-weight:700;letter-spacing:-.015em;line-height:1.3}
+.story-arr{flex:none;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid var(--glass-border);position:relative;transition:transform .5s var(--ease),background .3s}
+.story-arr::before{content:"";position:absolute;left:50%;top:50%;width:12px;height:1.5px;background:var(--white);transform:translate(-55%,-50%)}
+.story-arr::after{content:"";position:absolute;left:50%;top:50%;width:7px;height:7px;border-top:1.5px solid var(--white);border-right:1.5px solid var(--white);transform:translate(-30%,-50%) rotate(45deg)}
+.story-row:hover .story-arr,.story-row:focus-visible .story-arr{transform:translateX(4px);background:rgba(255,255,255,.18)}
+/* выезд строк слева */
+.stories.reveal-stagger>*{transform:translateX(-60px)}
+.stories.reveal-stagger.in>*{transform:none}
+.stories.reveal-stagger.in>.story-row:hover{transform:translateX(6px)}
+
+.story-drawer{position:fixed;inset:0;z-index:91}
+.story-drawer[hidden]{display:none}
+.story-backdrop{position:absolute;inset:0;background:rgba(6,11,22,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);opacity:0}
+.story-panel{position:absolute;top:0;right:0;bottom:0;width:80vw;display:flex;flex-direction:column;background:linear-gradient(160deg,#22355A 0%,#111C33 100%);border-left:1px solid rgba(255,255,255,.22);box-shadow:-30px 0 80px -20px rgba(0,0,0,.6);border-radius:var(--r-lg) 0 0 var(--r-lg);outline:none;cursor:pointer;clip-path:inset(0 100% 0 0 round var(--r-lg) 0 0 var(--r-lg))}
+.story-inner{flex:1;overflow:auto;overscroll-behavior:contain;padding:clamp(28px,5vw,64px) clamp(22px,5vw,72px)}
+.story-eyebrow{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);margin-bottom:14px}
+.story-h{font-weight:800;letter-spacing:-.03em;line-height:1.08;font-size:clamp(28px,3.6vw,46px);max-width:24ch;margin-bottom:clamp(24px,3vw,36px)}
+.story-facts{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));margin:0 0 28px}
+.story-facts>div{padding:16px 18px;border-radius:var(--r-md);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1)}
+.story-facts dt{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);margin-bottom:6px}
+.story-facts dd{margin:0;font-size:16px;font-weight:600;line-height:1.4;color:var(--text)}
+.story-task{margin-bottom:28px;max-width:70ch}
+.story-task p:not(.stage-lbl){font-size:clamp(18px,1.6vw,21px);line-height:1.45;color:var(--text)}
+.story-cols{display:grid;gap:28px}
+@media (min-width:1100px){.story-cols{grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}}
+.story-col ul{display:grid}
+.story-col li{position:relative;padding:10px 0 10px 22px;color:var(--text);font-size:15px;line-height:1.5;border-top:1px solid rgba(255,255,255,.08)}
+.story-col li::before{content:"";position:absolute;left:0;top:18px;width:8px;height:8px;border-radius:50%;background:var(--silver);opacity:.7}
+.story-col-got li::before{background:#8FD3A8;opacity:.9}
+.story-col .stage-lbl{margin-top:0}
+@media (max-width:719px){.story-panel{width:92vw}.story-row{padding:18px;gap:14px}.story-num{display:none}}
+body.story-open{overflow:hidden}
