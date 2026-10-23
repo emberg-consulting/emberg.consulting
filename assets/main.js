@@ -194,7 +194,7 @@
     var inner = drawer.querySelector(".story-inner");
     var EASE = "cubic-bezier(.22,1,.36,1)";
     var DUR = reduce ? 1 : 700;
-    var R = "var(--r-lg) 0 0 var(--r-lg)";
+    var R = "0 var(--r-lg) var(--r-lg) 0";
     var current = null, busy = false;
     function anim(el, frames) { return el.animate(frames, { duration: DUR, easing: EASE, fill: "forwards" }).finished; }
     function open(row) {
