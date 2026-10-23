@@ -615,7 +615,6 @@ body.story-open{overflow:hidden}
 /* Ритм секций и светлые зоны (23.10) */
 .section{padding:clamp(64px,7.5vw,112px) 0}
 #contact{padding:clamp(32px,4vw,56px) 0;overflow:visible}
-.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:clamp(120px,16vw,220px);background:linear-gradient(180deg,rgba(11,19,36,0),var(--bg));pointer-events:none;z-index:-1}
 .section-light::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse 46% 30% at 16% 34%,rgba(143,166,200,.16),rgba(143,166,200,0) 72%)}
 .section-light-r::before{background:radial-gradient(ellipse 46% 26% at 84% 30%,rgba(143,166,200,.14),rgba(143,166,200,0) 72%)}
 /* финальный экран - светлая карточка */
@@ -629,3 +628,7 @@ body.story-open{overflow:hidden}
 .final-light .alt{color:rgba(27,42,74,.6)}
 .final-light .alt a{color:var(--navy)}
 .final-light .alt a:hover{color:#3C5A8C}
+
+/* подзаголовок «Почему наша система работает» - как заголовки секций */
+.h-section.subhead{font-size:clamp(34px,5.4vw,68px);letter-spacing:-.03em;line-height:1.02;margin:clamp(72px,8vw,112px) 0 clamp(40px,5vw,64px)}
+.h-section.subhead .accent{font-size:1.08em}
