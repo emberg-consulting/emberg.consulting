@@ -574,7 +574,9 @@ body.stage-open{overflow:hidden}
 /* Истории проектов - список как FAQ + панель справа */
 .stories{display:grid;gap:10px;max-width:900px}
 .story-row{width:100%;display:flex;align-items:center;gap:18px;padding:20px 22px;border-radius:var(--r-md);text-align:left;color:var(--text);font:inherit;cursor:pointer;transition:opacity .8s var(--ease),transform .6s var(--ease),border-color .4s,background .4s}
-.story-row:hover,.story-row:focus-visible{border-color:var(--glass-border-hi);background:var(--glass-2);transform:translateX(6px);outline:none}
+.story-row:focus{outline:none}
+.story-row:focus-visible{border-color:var(--glass-border-hi);background:var(--glass-2);outline:none}
+@media (hover:hover) and (pointer:fine){.story-row:hover{border-color:var(--glass-border-hi);background:var(--glass-2);transform:translateX(6px)}}
 .story-num{flex:none;font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--text-3)}
 .story-txt{flex:1;display:grid;gap:4px;min-width:0}
 .story-niche{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3)}
@@ -582,11 +584,12 @@ body.stage-open{overflow:hidden}
 .story-arr{flex:none;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid var(--glass-border);position:relative;transition:transform .5s var(--ease),background .3s}
 .story-arr::before{content:"";position:absolute;left:50%;top:50%;width:12px;height:1.5px;background:var(--white);transform:translate(-55%,-50%)}
 .story-arr::after{content:"";position:absolute;left:50%;top:50%;width:7px;height:7px;border-top:1.5px solid var(--white);border-right:1.5px solid var(--white);transform:translate(-30%,-50%) rotate(45deg)}
-.story-row:hover .story-arr,.story-row:focus-visible .story-arr{transform:translateX(4px);background:rgba(255,255,255,.18)}
+.story-row:focus-visible .story-arr{background:rgba(255,255,255,.18)}
+@media (hover:hover) and (pointer:fine){.story-row:hover .story-arr{transform:translateX(4px);background:rgba(255,255,255,.18)}}
 /* выезд строк слева */
 .stories.reveal-stagger>*{transform:translateX(-60px)}
 .stories.reveal-stagger.in>*{transform:none}
-.stories.reveal-stagger.in>.story-row:hover{transform:translateX(6px)}
+@media (hover:hover) and (pointer:fine){.stories.reveal-stagger.in>.story-row:hover{transform:translateX(6px)}}
 
 .story-drawer{position:fixed;inset:0;z-index:91}
 .story-drawer[hidden]{display:none}

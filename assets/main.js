@@ -195,7 +195,7 @@
     var EASE = "cubic-bezier(.45,0,.15,1)";
     var DUR_OPEN = reduce ? 1 : 1050, DUR_CLOSE = reduce ? 1 : 800;
     var R = "0 var(--r-lg) var(--r-lg) 0";
-    var current = null, busy = false;
+    var current = null, busy = false, viaKey = false;
     function anim(el, frames, dur) { return el.animate(frames, { duration: dur, easing: EASE, fill: "forwards" }).finished; }
     function open(row) {
       if (busy || current) return;
@@ -227,11 +227,11 @@
         document.body.classList.remove("story-open");
         document.body.style.paddingRight = "";
         current = null; busy = false;
-        row.focus({ preventScroll: true });
+        if (viaKey) row.focus({ preventScroll: true }); else row.blur();
       });
     }
     document.querySelectorAll(".story-row[data-story]").forEach(function (row) {
-      row.addEventListener("click", function () { open(row); });
+      row.addEventListener("click", function (e) { viaKey = e.detail === 0; if (!viaKey) row.blur(); open(row); });
     });
     drawer.addEventListener("click", close);
     document.addEventListener("keydown", function (e) {
