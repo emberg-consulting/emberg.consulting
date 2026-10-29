@@ -68,13 +68,12 @@ a.link-pill:hover{background:rgba(255,255,255,.14);border-color:var(--glass-bord
 .j-arrow{display:grid;place-items:center;height:64px}
 .j-arrow svg{width:64px;height:24px;overflow:visible;transform:rotate(90deg)}
 @media (min-width:980px){.j-arrow{height:auto}.j-arrow svg{transform:none}}
-.j-arrow path{fill:none;stroke-linecap:round;stroke-linejoin:round}
-.j-arrow .line{stroke:rgba(255,255,255,.55);stroke-width:2;stroke-dasharray:100;stroke-dashoffset:100;transition:stroke-dashoffset .8s var(--ease);transition-delay:calc(var(--i) * .5s + .35s)}
-.journey.go .j-arrow .line,.j-arrow.go .line{stroke-dashoffset:0}
-@media (max-width:979px){.j-step,.j-arrow .line{transition-delay:0s}.j-arrow .flow{animation-delay:0s}}
-.j-arrow .flow{stroke:#fff;stroke-width:2.4;stroke-dasharray:14 86;stroke-dashoffset:100;opacity:0;filter:drop-shadow(0 0 4px rgba(255,255,255,.8))}
-.journey.done .j-arrow .flow,.j-arrow.done .flow{opacity:.95;animation:j-flow 2.6s linear infinite;animation-delay:calc(var(--i) * .35s)}
-@keyframes j-flow{to{stroke-dashoffset:0}}
+.j-arrow path{fill:none;stroke:#9AA6B8;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:100;stroke-dashoffset:100}
+/* линия и «усы» рисуются одним движением вперёд: усы стартуют, когда линия доходит до их основания, и заканчивают вместе с ней */
+.j-arrow .line{transition:stroke-dashoffset .7s linear;transition-delay:calc(var(--i) * .5s + .35s)}
+.j-arrow .barb{transition:stroke-dashoffset .1s linear;transition-delay:calc(var(--i) * .5s + .95s)}
+.journey.go .j-arrow path,.j-arrow.go path{stroke-dashoffset:0}
+@media (max-width:979px){.j-step,.j-arrow .line{transition-delay:0s}.j-arrow .barb{transition-delay:.6s}}
 .j-step.is-now .j-card{border-color:var(--glass-border-hi);background:linear-gradient(160deg,rgba(255,255,255,.16),rgba(255,255,255,.04))}
 .journey.go .j-step.is-now .j-card,.j-step.is-now.go .j-card{animation:j-glow 3.2s var(--ease) 2.2s infinite}
 @keyframes j-glow{0%,100%{box-shadow:0 1px 0 rgba(255,255,255,.08) inset,0 20px 60px -30px rgba(0,0,0,.6)}50%{box-shadow:0 1px 0 rgba(255,255,255,.12) inset,0 0 0 1px rgba(255,255,255,.18),0 0 48px -6px rgba(143,166,200,.55)}}
@@ -83,7 +82,7 @@ a.link-pill:hover{background:rgba(255,255,255,.14);border-color:var(--glass-bord
 .j-now i::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid #fff;animation:j-ping 1.8s var(--ease) infinite}
 @keyframes j-ping{0%{transform:scale(.6);opacity:1}100%{transform:scale(2.2);opacity:0}}
 .j-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
-@media (prefers-reduced-motion:reduce){.j-step{opacity:1;transform:none}.j-arrow .line{stroke-dashoffset:0}.j-arrow .flow{display:none}}
+@media (prefers-reduced-motion:reduce){.j-step{opacity:1;transform:none}.j-arrow path{stroke-dashoffset:0}}
 .motto{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(30px,4.4vw,54px);line-height:1.12;color:var(--silver);max-width:20ch;text-wrap:balance}
 .how-text{display:grid;gap:18px;max-width:64ch;margin-top:clamp(28px,4vw,40px)}
 .how-text p{color:var(--text-2);font-size:clamp(17px,1.5vw,19px)}
@@ -174,11 +173,11 @@ a.link-pill:hover{background:rgba(255,255,255,.14);border-color:var(--glass-bord
     </div>
     <ol class="journey">
       <li class="j-step" style="--i:0"><div class="j-card glass"><div class="j-top"><span class="j-n">01</span></div><span class="j-kicker">Продукт</span><b>Продуктовый менеджер</b><p>Работал продуктовым менеджером в крупной компании</p></div></li>
-      <li class="j-arrow" style="--i:0" aria-hidden="true"><svg viewBox="0 0 64 24"><path class="line" pathLength="100" d="M2 12H60L52 4"/><path class="line" pathLength="100" d="M2 12H60L52 20"/><path class="flow" pathLength="100" d="M2 12H60L52 4"/><path class="flow" pathLength="100" d="M2 12H60L52 20"/></svg></li>
+      <li class="j-arrow" style="--i:0" aria-hidden="true"><svg viewBox="0 0 64 24"><path class="line" pathLength="100" d="M2 12H60"/><path class="barb" pathLength="100" d="M52 4L60 12"/><path class="barb" pathLength="100" d="M52 20L60 12"/></svg></li>
       <li class="j-step" style="--i:1"><div class="j-card glass"><div class="j-top"><span class="j-n">02</span></div><span class="j-kicker">Консалтинг</span><b>Resulting</b><p>Бизнес-консультант, самый молодой в команде. Строил отделы продаж для компаний из разных ниш</p></div></li>
-      <li class="j-arrow" style="--i:1" aria-hidden="true"><svg viewBox="0 0 64 24"><path class="line" pathLength="100" d="M2 12H60L52 4"/><path class="line" pathLength="100" d="M2 12H60L52 20"/><path class="flow" pathLength="100" d="M2 12H60L52 4"/><path class="flow" pathLength="100" d="M2 12H60L52 20"/></svg></li>
+      <li class="j-arrow" style="--i:1" aria-hidden="true"><svg viewBox="0 0 64 24"><path class="line" pathLength="100" d="M2 12H60"/><path class="barb" pathLength="100" d="M52 4L60 12"/><path class="barb" pathLength="100" d="M52 20L60 12"/></svg></li>
       <li class="j-step" style="--i:2"><div class="j-card glass"><div class="j-top"><span class="j-n">03</span></div><span class="j-kicker">Своя практика</span><b>Один - не система</b><p>Понял на собственных проектах: в одиночку отдел продаж не построить и не удержать. Нужны методология и команда</p></div></li>
-      <li class="j-arrow" style="--i:2" aria-hidden="true"><svg viewBox="0 0 64 24"><path class="line" pathLength="100" d="M2 12H60L52 4"/><path class="line" pathLength="100" d="M2 12H60L52 20"/><path class="flow" pathLength="100" d="M2 12H60L52 4"/><path class="flow" pathLength="100" d="M2 12H60L52 20"/></svg></li>
+      <li class="j-arrow" style="--i:2" aria-hidden="true"><svg viewBox="0 0 64 24"><path class="line" pathLength="100" d="M2 12H60"/><path class="barb" pathLength="100" d="M52 4L60 12"/><path class="barb" pathLength="100" d="M52 20L60 12"/></svg></li>
       <li class="j-step is-now" style="--i:3"><div class="j-card glass"><div class="j-top"><span class="j-n">04</span><span class="j-now"><i></i>Сейчас</span></div><span class="j-kicker">Своё агентство</span><b>Эмберг.Консалтинг</b><p>Авторское агентство: своя методология, обученная команда, 10+ построенных отделов продаж</p></div></li>
     </ol>
   </div>
