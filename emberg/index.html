@@ -9,13 +9,13 @@
 <meta name="robots" content="noindex, follow">
 <meta name="author" content="Эмберг Манасарян">
 <title>Эмберг Манасарян - основатель Эмберг.Консалтинг | Emberg Manasaryan</title>
-<meta name="description" content="Эмберг Манасарян (Emberg Manasaryan) - основатель Эмберг.Консалтинг. Строю отделы продаж, которые остаются в работе. Разборы отделов продаж, путь, подход и гарантии">
+<meta name="description" content="Эмберг Манасарян (Emberg Manasaryan) - основатель Эмберг.Консалтинг. Строю отделы продаж, которые остаются в работе. Разборы, статьи и путь основателя">
 <link rel="canonical" href="https://emberg.consulting/emberg/">
 <meta property="og:type" content="profile">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:site_name" content="Эмберг.Консалтинг">
 <meta property="og:title" content="Эмберг Манасарян - строю отделы продаж, которые остаются в работе">
-<meta property="og:description" content="Разборы отделов продаж, путь, подход и гарантии основателя Эмберг.Консалтинг">
+<meta property="og:description" content="Разборы, статьи и путь основателя Эмберг.Консалтинг">
 <meta property="og:url" content="https://emberg.consulting/emberg/">
 <meta property="og:image" content="https://emberg.consulting/assets/img/og.jpg">
 <meta property="og:image:width" content="1200">
@@ -52,20 +52,42 @@ a.link-pill:hover{background:rgba(255,255,255,.14);border-color:var(--glass-bord
 @media (min-width:860px){.feed{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .feed-empty{padding:clamp(28px,4vw,44px);display:grid;gap:14px;border-style:dashed}
 .feed-empty p{color:var(--text-2);max-width:60ch}
-.path{display:grid;gap:0;overflow:hidden}
-.path .role b{display:flex;align-items:baseline;gap:12px}
-.path .role .n{font-family:var(--serif);font-style:italic;font-weight:500;font-size:28px;line-height:1;color:rgba(255,255,255,.35)}
-.vows .phase p{color:var(--text-2);font-size:16px;margin-top:4px}
-.vows .phase p+p{margin-top:12px}
-.vows .phase.is-no{background:rgba(255,255,255,.03)}
-.nots{display:grid;gap:10px;max-width:900px}
-.nots li{position:relative;padding:18px 22px 18px 58px;border-radius:var(--r-md);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:var(--text)}
-.nots li::before{content:"";position:absolute;left:20px;top:21px;width:20px;height:20px;border-radius:50%;border:1px solid var(--glass-border);background:rgba(255,255,255,.08) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M6 12h12'/%3E%3C/svg%3E") center/10px no-repeat}
-.nots li span{display:block;font-size:15px;color:var(--text-2);margin-top:4px}
+.journey{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+@media (min-width:980px){.journey{display:grid;grid-template-columns:minmax(0,1fr) 72px minmax(0,1fr) 72px minmax(0,1fr) 72px minmax(0,1.15fr);align-items:stretch}}
+.j-step{opacity:0;transform:translateY(28px) scale(.97);transition:opacity .8s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--i) * .5s)}
+.journey.go .j-step,.j-step.go{opacity:1;transform:none}
+.j-card{position:relative;height:100%;padding:28px 24px;display:flex;flex-direction:column;gap:10px;overflow:hidden;transition:transform .5s var(--ease),border-color .4s}
+.j-card::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .4s;background:radial-gradient(220px circle at var(--mx,50%) var(--my,0%),rgba(255,255,255,.14),transparent 70%)}
+.j-card:hover{transform:translateY(-4px);border-color:var(--glass-border-hi)}
+.j-card:hover::after{opacity:1}
+.j-n{font-family:var(--serif);font-style:italic;font-weight:500;font-size:48px;line-height:1;color:rgba(255,255,255,.28);transition:color .6s}
+.journey.go .j-step:last-child .j-n,.j-step.is-now.go .j-n{color:rgba(255,255,255,.7)}
+.j-kicker{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3)}
+.j-card b{font-size:clamp(19px,1.6vw,22px);font-weight:800;letter-spacing:-.02em;line-height:1.2}
+.j-card p{color:var(--text-2);font-size:15px;line-height:1.55}
+.j-arrow{display:grid;place-items:center;height:64px}
+.j-arrow svg{width:64px;height:24px;overflow:visible;transform:rotate(90deg)}
+@media (min-width:980px){.j-arrow{height:auto}.j-arrow svg{transform:none}}
+.j-arrow path{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.j-arrow .line,.j-arrow .head{stroke:rgba(255,255,255,.55);stroke-width:2;stroke-dasharray:100;stroke-dashoffset:100;transition:stroke-dashoffset .7s var(--ease);transition-delay:calc(var(--i) * .5s + .35s)}
+.j-arrow .head{transition-delay:calc(var(--i) * .5s + .8s)}
+.journey.go .j-arrow .line,.journey.go .j-arrow .head,.j-arrow.go .line,.j-arrow.go .head{stroke-dashoffset:0}
+@media (max-width:979px){.j-step,.j-arrow .line{transition-delay:0s}.j-arrow .head{transition-delay:.45s}.j-arrow .flow{animation-delay:0s}}
+.j-arrow .flow{stroke:#fff;stroke-width:2.4;stroke-dasharray:14 86;stroke-dashoffset:100;opacity:0;filter:drop-shadow(0 0 4px rgba(255,255,255,.8))}
+.journey.done .j-arrow .flow,.j-arrow.done .flow{opacity:.95;animation:j-flow 2.6s linear infinite;animation-delay:calc(var(--i) * .35s)}
+@keyframes j-flow{to{stroke-dashoffset:0}}
+.j-step.is-now .j-card{border-color:var(--glass-border-hi);background:linear-gradient(160deg,rgba(255,255,255,.16),rgba(255,255,255,.04))}
+.journey.go .j-step.is-now .j-card,.j-step.is-now.go .j-card{animation:j-glow 3.2s var(--ease) 2.2s infinite}
+@keyframes j-glow{0%,100%{box-shadow:0 1px 0 rgba(255,255,255,.08) inset,0 20px 60px -30px rgba(0,0,0,.6)}50%{box-shadow:0 1px 0 rgba(255,255,255,.12) inset,0 0 0 1px rgba(255,255,255,.18),0 0 48px -6px rgba(143,166,200,.55)}}
+.j-now{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;padding:6px 12px;border-radius:var(--r-pill);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:rgba(255,255,255,.12);border:1px solid var(--glass-border)}
+.j-now i{position:relative;width:8px;height:8px;border-radius:50%;background:#fff}
+.j-now i::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid #fff;animation:j-ping 1.8s var(--ease) infinite}
+@keyframes j-ping{0%{transform:scale(.6);opacity:1}100%{transform:scale(2.2);opacity:0}}
+.j-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+@media (prefers-reduced-motion:reduce){.j-step{opacity:1;transform:none}.j-arrow .line,.j-arrow .head{stroke-dashoffset:0}.j-arrow .flow{display:none}}
 .motto{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(30px,4.4vw,54px);line-height:1.12;color:var(--silver);max-width:20ch;text-wrap:balance}
 .how-text{display:grid;gap:18px;max-width:64ch;margin-top:clamp(28px,4vw,40px)}
 .how-text p{color:var(--text-2);font-size:clamp(17px,1.5vw,19px)}
-.points .point-title b{font-size:20px}
 </style>
 </head>
 <body>
@@ -75,8 +97,8 @@ a.link-pill:hover{background:rgba(255,255,255,.14);border-color:var(--glass-bord
     <div class="header-inner">
       <a href="/" class="wordmark" aria-label="Эмберг.Консалтинг - на главную"><img class="logo" src="/assets/img/logo.svg" alt="Эмберг.Консалтинг (Emberg Consulting)" width="350" height="64"><span class="sub">консалтинг</span></a>
       <nav class="nav" aria-label="Разделы">
-        <a href="#razbory">Разборы</a>
-        <a href="#podhod">Подход</a>
+        <a href="/">Консалтинг</a>
+        <a href="#kontent">Полезный контент</a>
         <a class="nav-cta" data-cta="C20" href="https://t.me/emberg_consulting">Связь</a>
       </nav>
       <button class="burger" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -86,9 +108,9 @@ a.link-pill:hover{background:rgba(255,255,255,.14);border-color:var(--glass-bord
 
 <div class="mobile-menu" aria-label="Мобильное меню">
   <div>
-    <a class="item" href="#razbory">Разборы</a>
-    <a class="item" href="#podhod">Подход</a>
-    <a class="item" href="/">Агентство</a>
+    <a class="item" href="/">Консалтинг</a>
+    <a class="item" href="#kontent">Полезный контент</a>
+    <a class="item" href="#put">Путь</a>
     <a class="item" data-cta="C21" href="https://t.me/emberg_consulting">Связь</a>
   </div>
   <a class="btn btn-primary" data-cta="C01" href="https://t.me/emberg_consulting">Записаться на разбор</a>
@@ -119,26 +141,26 @@ a.link-pill:hover{background:rgba(255,255,255,.14);border-color:var(--glass-bord
         </div>
         <div class="p-cta reveal d5">
           <a class="btn btn-primary btn-lg" data-cta="C02" href="https://t.me/emberg_consulting">Записаться на разбор <span class="arr">→</span></a>
-          <a class="btn btn-glass btn-lg" href="/#services">Форматы и цены</a>
+          <a class="btn btn-glass btn-lg" href="/">Консалтинг</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Разборы -->
-<section class="section" id="razbory">
+<!-- Полезный контент -->
+<section class="section" id="kontent">
   <div class="orb orb-a"></div>
   <div class="container">
     <div class="section-head reveal">
-      <h2 class="h-section">Разборы</h2>
-      <p class="lead">Как ломаются отделы продаж и что с этим делать - на реальных ситуациях. Видео и текст раз в две недели</p>
+      <h2 class="h-section">Полезный <span class="accent">контент</span></h2>
+      <p class="lead">Разборы и статьи о том, как строить отделы продаж, которые остаются в работе. Новый материал раз в две недели</p>
     </div>
     <div class="feed reveal-stagger">
       <article class="card glass feed-empty">
         <span class="tag">Скоро</span>
-        <h3 class="h-card">Первый разбор готовится</h3>
-        <p>Каждый разбор начинается с конкретной ситуации: заявки есть, а продаж мало, CRM ведут для галочки, РОП всё закрывает сам. Дальше - где утекают деньги, к какой точке отказа это относится и что с этим делают</p>
+        <h3 class="h-card">Первые материалы готовятся</h3>
+        <p>Каждый материал начинается с конкретной ситуации: заявки есть, а продаж мало, CRM ведут для галочки, РОП всё закрывает сам. Дальше - где утекают деньги и что с этим делать. Разборы выходят видео на YouTube и текстом здесь</p>
       </article>
     </div>
   </div>
@@ -151,96 +173,15 @@ a.link-pill:hover{background:rgba(255,255,255,.14);border-color:var(--glass-bord
     <div class="section-head reveal">
       <h2 class="h-section">Путь</h2>
     </div>
-    <div class="path roles glass reveal">
-      <div class="role"><b><span class="n">01</span>Продуктовый менеджер</b><p>Работал продуктовым менеджером в крупной компании</p></div>
-      <div class="role"><b><span class="n">02</span>Resulting</b><p>Бизнес-консультант, самый молодой в команде. Строил отделы продаж для компаний из разных ниш</p></div>
-      <div class="role"><b><span class="n">03</span>Своя практика</b><p>Понял на собственных проектах: один человек физически не закрывает все пять точек, в которых ломаются отделы продаж. Нужны методология и команда</p></div>
-      <div class="role"><b><span class="n">04</span>Эмберг.Консалтинг</b><p>Авторское агентство: своя методология, обученная команда, 10+ построенных отделов продаж</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- Пять точек отказа -->
-<section class="section" id="podhod">
-  <div class="orb orb-a" style="top:30%;right:auto;left:-240px"></div>
-  <div class="container">
-    <div class="section-head reveal">
-      <h2 class="h-section">Почему отделы продаж <span class="accent">откатываются</span> назад</h2>
-      <p class="lead">Всё, что внедряли, работает ровно столько, сколько собственник это толкает. Обычно ломается в одной из пяти точек - и особая ниша тут, как правило, ни при чём</p>
-    </div>
-    <div class="points reveal-stagger">
-      <div class="point glass">
-        <div class="point-title"><span class="n">01</span><b>Полномочия</b></div>
-        <div><span class="lbl">Где ломается</span><p>Внедрял тот, у кого нет права менять модель продаж, роли и мотивацию: РОП, подрядчик, отдельный сотрудник</p></div>
-        <div class="fix"><span class="lbl">Как закрываю</span><p>Работаю только с собственником. Меняем фундамент - модель продаж, роли, кто что продаёт и кому, - а не скрипт поверх кривой конструкции</p></div>
-      </div>
-      <div class="point glass">
-        <div class="point-title"><span class="n">02</span><b>Участие</b></div>
-        <div><span class="lbl">Где ломается</span><p>Решение приняли без тех, кто будет им пользоваться. Дальше саботаж или тихое забывание</p></div>
-        <div class="fix"><span class="lbl">Как закрываю</span><p>Работаю снизу вверх: потребности снимаем с менеджеров, а не только с руководства. Фактура для решений - от тех, кто работает руками</p></div>
-      </div>
-      <div class="point glass">
-        <div class="point-title"><span class="n">03</span><b>Приёмка</b></div>
-        <div><span class="lbl">Где ломается</span><p>Знание передали, но не встроили в работу: материалы курса лежат в столе, документ консультанта - в папке</p></div>
-        <div class="fix"><span class="lbl">Как закрываю</span><p>Каждый инструмент проходит защиту. Дальше не идём, пока предыдущий этап не работает</p></div>
-      </div>
-      <div class="point glass">
-        <div class="point-title"><span class="n">04</span><b>Носитель</b></div>
-        <div><span class="lbl">Где ломается</span><p>Подрядчик ушёл - и система ушла вместе с ним, потому что жила у него в голове. То же с РОПом, который всё закрывает сам: ушёл в другую компанию - и всё встало</p></div>
-        <div class="fix"><span class="lbl">Как закрываю</span><p>Система живёт в Notion и CRM: воронка, карточка сделки, автозадачи, шаблоны, база знаний. Продумываем, кто и в какой момент открывает каждый инструмент</p></div>
-      </div>
-      <div class="point glass">
-        <div class="point-title"><span class="n">05</span><b>Время и текучка</b></div>
-        <div><span class="lbl">Где ломается</span><p>Ушли обученные люди - всё обнулилось. Сместились приоритеты - инструмент тихо ушёл на задний план</p></div>
-        <div class="fix"><span class="lbl">Как закрываю</span><p>Новый сотрудник входит в готовую систему через базу знаний, а после проекта мы возвращаемся на контрольные аудиты</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Гарантии -->
-<section class="section section-alt" id="garantii">
-  <div class="orb orb-b"></div>
-  <div class="container">
-    <div class="section-head reveal">
-      <h2 class="h-section">Что гарантирую, обещаю и <span class="accent">не обещаю</span></h2>
-      <p class="lead">На рынке привыкли обещать рост выручки в разы. Я разделяю три разных обязательства</p>
-    </div>
-    <div class="phases vows reveal-stagger">
-      <div class="phase glass">
-        <span class="tag">Гарантирую</span>
-        <h3 class="h-card">Дорожная карта будет внедрена целиком</h3>
-        <p>В согласованном объёме и в срок плюс-минус пара недель. Каждый инструмент вы принимаете на защите</p>
-        <p>Гарантирую своим именем: агентство авторское, и за работу команды я отвечаю лично</p>
-      </div>
-      <div class="phase glass">
-        <span class="tag">Обещаю</span>
-        <h3 class="h-card">Построенное останется в работе</h3>
-        <p>А не откатится назад через пару месяцев после нашего ухода. Для этого - защита этапов, система в Notion и CRM и контрольные аудиты через 1 и 3 месяца после проекта</p>
-      </div>
-      <div class="phase glass is-no">
-        <span class="tag">Не обещаю</span>
-        <h3 class="h-card">Рост выручки в цифрах</h3>
-        <p>На выручку, конверсию и число сделок влияют маркетинг, продукт, рынок и ваши кадровые решения. Мы их не контролируем</p>
-        <p>Ни один консалтинг не может гарантировать, что инструмент заработает. Те, кто гарантирует, занимаются инфоцыганством</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Чего не делаю -->
-<section class="section" id="ne-delayu">
-  <div class="container">
-    <div class="section-head reveal">
-      <h2 class="h-section">Чего я <span class="accent">не делаю</span></h2>
-    </div>
-    <ul class="nots reveal-stagger">
-      <li>Не продаю за вас<span>Не звоним вашим клиентам, не ведём переписку и не запускаем рекламу. Строим систему, в которой это делает ваша команда</span></li>
-      <li>Не работаю без собственника<span>Модель продаж, роли и мотивация - решения собственника. Без него менять фундамент некому</span></li>
-      <li>Не встраиваюсь в штат на постоянку<span>Задача - построить отдел, который работает без нас, а не стать ещё одним сотрудником</span></li>
-      <li>Не подбираю людей сам<span>Пишем профили должностей, мотивацию и воронку найма, а при необходимости подключаем рекрутера</span></li>
-      <li>Не беру компании, где выбирают только по цене<span>Если клиент решает по цене, наличию и срокам, отдел продаж почти ни на что не влияет</span></li>
-    </ul>
+    <ol class="journey">
+      <li class="j-step" style="--i:0"><div class="j-card glass"><div class="j-top"><span class="j-n">01</span></div><span class="j-kicker">Продукт</span><b>Продуктовый менеджер</b><p>Работал продуктовым менеджером в крупной компании</p></div></li>
+      <li class="j-arrow" style="--i:0" aria-hidden="true"><svg viewBox="0 0 64 24"><path class="line" pathLength="100" d="M2 12H60"/><path class="flow" pathLength="100" d="M2 12H60"/><path class="head" pathLength="100" d="M52 4l8 8-8 8"/></svg></li>
+      <li class="j-step" style="--i:1"><div class="j-card glass"><div class="j-top"><span class="j-n">02</span></div><span class="j-kicker">Консалтинг</span><b>Resulting</b><p>Бизнес-консультант, самый молодой в команде. Строил отделы продаж для компаний из разных ниш</p></div></li>
+      <li class="j-arrow" style="--i:1" aria-hidden="true"><svg viewBox="0 0 64 24"><path class="line" pathLength="100" d="M2 12H60"/><path class="flow" pathLength="100" d="M2 12H60"/><path class="head" pathLength="100" d="M52 4l8 8-8 8"/></svg></li>
+      <li class="j-step" style="--i:2"><div class="j-card glass"><div class="j-top"><span class="j-n">03</span></div><span class="j-kicker">Своя практика</span><b>Один - не система</b><p>Понял на собственных проектах: в одиночку отдел продаж не построить и не удержать. Нужны методология и команда</p></div></li>
+      <li class="j-arrow" style="--i:2" aria-hidden="true"><svg viewBox="0 0 64 24"><path class="line" pathLength="100" d="M2 12H60"/><path class="flow" pathLength="100" d="M2 12H60"/><path class="head" pathLength="100" d="M52 4l8 8-8 8"/></svg></li>
+      <li class="j-step is-now" style="--i:3"><div class="j-card glass"><div class="j-top"><span class="j-n">04</span><span class="j-now"><i></i>Сейчас</span></div><span class="j-kicker">Своё агентство</span><b>Эмберг.Консалтинг</b><p>Авторское агентство: своя методология, обученная команда, 10+ построенных отделов продаж</p></div></li>
+    </ol>
   </div>
 </section>
 
@@ -255,7 +196,7 @@ a.link-pill:hover{background:rgba(255,255,255,.14);border-color:var(--glass-bord
     </div>
     <div class="cta-row reveal">
       <a class="btn btn-primary" data-cta="C15" href="https://t.me/emberg_consulting">Записаться на разбор <span class="arr">→</span></a>
-      <a class="btn btn-glass" href="/#services">Форматы и цены</a>
+      <a class="btn btn-glass" href="/">Консалтинг</a>
     </div>
   </div>
 </section>
@@ -273,11 +214,9 @@ a.link-pill:hover{background:rgba(255,255,255,.14);border-color:var(--glass-bord
       <div class="col">
         <span class="lbl">Разделы</span>
         <ul>
-          <li><a href="#razbory">Разборы</a></li>
+          <li><a href="/">Консалтинг</a></li>
+          <li><a href="#kontent">Полезный контент</a></li>
           <li><a href="#put">Путь</a></li>
-          <li><a href="#podhod">Подход</a></li>
-          <li><a href="#garantii">Гарантии</a></li>
-          <li><a href="/">Эмберг.Консалтинг</a></li>
           <li><a href="/#services">Форматы и цены</a></li>
         </ul>
       </div>
@@ -317,5 +256,6 @@ a.link-pill:hover{background:rgba(255,255,255,.14);border-color:var(--glass-bord
 </div>
 
 <script src="/assets/main.js?v=16" defer></script>
+<script src="/emberg/journey.js?v=1" defer></script>
 </body>
 </html>
