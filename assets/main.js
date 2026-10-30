@@ -2,7 +2,7 @@
   "use strict";
 
   /* ---------- Config ---------- */
-  var TG = "emberg_consulting";
+  var TG = "emberg_manasaryan";
   var MAIL = "emberg.work@mail.ru";
   var METRIKA_ID = 113852065; // счётчик Яндекс.Метрики
 
