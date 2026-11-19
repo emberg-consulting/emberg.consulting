@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="ru" data-type="service" data-radius="soft" data-buttons="solid" data-motion>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- v2: черновик для обкатки, не индексируется, основной сайт - корень репозитория -->
+<meta name="robots" content="noindex, nofollow">
+<title>Эмберг.Консалтинг: построение отделов продаж для малого и среднего бизнеса</title>
+<meta name="description" content="Строим отделы продаж под ключ: разбор и дорожная карта за 1,5 часа, регламенты, скрипты, CRM и управление по цифрам. Разбор - 9 тыс. ₽">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Эмберг.Консалтинг - строим отделы продаж, которые работают">
+<meta property="og:description" content="Разберём ваш отдел продаж и соберём дорожную карту на квартал">
+<meta property="og:image" content="share.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#f5f7fa">
+<!-- <link rel="canonical" href="https://emberg.consulting/"> - после переноса v2 в корень -->
+<meta name="site-kind" content="other">
+<meta name="page-type" content="service">
+<link rel="stylesheet" href="assets/system.css">
+<link rel="stylesheet" href="assets/ui/cards.css">
+<link rel="stylesheet" href="assets/motion/motion.css">
+<link rel="stylesheet" href="assets/layout/layout.css">
+<link rel="stylesheet" href="assets/icons/icon.css">
+<link rel="stylesheet" href="assets/ui/base.css">
+<link rel="stylesheet" href="assets/ui/stat/fragment.css">
+<link rel="stylesheet" href="assets/ui/checklist/fragment.css">
+<style>
+@font-face{font-family:"Manrope";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/manrope-400-cyr.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/manrope-400-lat.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+20AC,U+2122,U+2212}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/manrope-500-cyr.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/manrope-500-lat.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+20AC,U+2122,U+2212}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/manrope-700-cyr.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/manrope-700-lat.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+20AC,U+2122,U+2212}
+:root {
+  --p-bg: #f5f7fa; --p-surface: #eaf0f7; --p-ink: #0b1324; --p-muted: #4f6b99;
+  --p-accent: #1b2a4a; --p-accent-ink: #f5f7fa; --p-action: #1b2a4a; --p-action-ink: #f5f7fa;
+  --p-inv-bg: #0b1324; --p-inv-surface: #182031; --p-inv-ink: #f5f7fa; --p-inv-muted: #9297a2;
+  --p-inv-accent: #f5f7fa; --p-inv-accent-ink: #0b1324; --p-inv-action: #f5f7fa; --p-inv-action-ink: #0b1324;
+  --font-display: "Manrope", system-ui, sans-serif;
+  --font-text: "Manrope", system-ui, sans-serif;
+  --display-weight: 400;
+  --display-tracking: -0.035em;
+  --display-tracking-xl: -0.045em;
+  --ly-scale: 0.97;
+}
+</style>
+<script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
+<script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
+<link rel="modulepreload" href="assets/moments/moments.js">
+<link rel="modulepreload" href="assets/moments/lib.js">
+<link rel="modulepreload" href="assets/moments/pinned-chapters/moment.js">
+<style>
+  :root { --ground-bg: #c9d2de; }
+  .nav__logo img { height: 20px; width: auto; display: block; }
+  .footer__logo img { height: 34px; width: auto; display: block; }
+  .rows .rows__name small { display: block; font-weight: 400; color: var(--muted); font-size: var(--t-small); }
+  /* окна этапов в pinned-chapters: состав этапа как документ */
+  .stage-doc { margin: 0; height: 100%; background: var(--surface); padding: 40px 44px; display: flex; flex-direction: column; gap: 20px; }
+  .stage-doc__head { display: flex; justify-content: space-between; font-size: var(--t-small); color: var(--muted); }
+  .stage-doc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  .stage-doc li { display: flex; gap: 12px; font-size: 17px; line-height: 1.45; padding-bottom: 12px; border-bottom: 1px solid color-mix(in oklab, var(--ink) 10%, transparent); }
+  .stage-doc li::before { content: ""; flex: none; width: 8px; height: 8px; margin-top: 9px; border-radius: 50%; background: var(--accent); }
+  .case-meta { display: grid; gap: 4px; }
+  .case-cols .t-label { font-size: var(--t-small); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-weight: 500; margin-bottom: 12px; }
+  .case-cols ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; font-size: 16px; line-height: 1.45; }
+  .case-cols li { padding-bottom: 10px; border-bottom: 1px solid color-mix(in oklab, var(--ink) 10%, transparent); }
+  .founder-quote { font-size: clamp(24px, 2.6vw, 36px); line-height: 1.3; letter-spacing: -0.02em; margin: 0; }
+  .niches { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+  .niches li { padding: 6px 14px; border-radius: 999px; background: var(--surface); font-size: var(--t-small); }
+  @media (max-width: 1023px) { .stage-doc { padding: 24px; } .stage-doc li { font-size: 15px; } }
+  @media (max-width: 639px) {
+    .nav__actions { display: none; }
+    #process .mo-pc__visual { display: none; }
+    .case-cols li:nth-child(3) { display: none; }
+    .footer__col a, .footer__legal span { overflow-wrap: anywhere; }
+    .closing__cta .btn--wide { width: 100%; }
+    footer.closing .wrap * { min-width: 0; max-width: 100%; }
+    #formats .group:first-child .rows { display: none; }
+  }
+</style>
+</head>
+<body>
+<!-- type: service
+     deal: hero split, nav nav-centre, close close-type, footer footer-dark, rhythm space, buttons solid, mark - свой логотип клиента
+     palette: start.mjs brand из цветов логотипа (navy #1B2A4A, серебро/лёд), шрифт Manrope - фирменный клиента
+     moments: pinned-chapters в #process -->
+<header class="nav nav--centre">
+  <div class="wrap nav__bar">
+    <a class="skip-link" href="#top">К содержанию</a>
+    <a class="nav__logo" href="#top" aria-label="Эмберг.Консалтинг, наверх"><img src="logo-ink.svg" alt="" width="110" height="20"></a>
+    <nav class="nav__links" aria-label="Основное меню">
+      <div class="nav__item"><a class="nav__link" href="#why">О нас</a></div>
+      <div class="nav__item"><a class="nav__link" href="#formats">Услуги</a></div>
+      <div class="nav__item"><a class="nav__link" href="#contact">Связь</a></div>
+    </nav>
+    <div class="nav__actions">
+      <a class="btn btn--primary" href="https://t.me/emberg_manasaryan">Записаться на разбор</a>
+    </div>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Меню">
+      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero hero--split" data-enter aria-labelledby="hero-h">
+    <div class="wrap"><div class="hero-text grid hero__grid">
+      <div class="hero__text span-5">
+        <p class="hero__kicker"><span class="dot" aria-hidden="true"></span>Для малого и среднего бизнеса</p>
+        <h1 id="hero-h">Строим отделы продаж, которые работают</h1>
+        <p class="hero__lead">Находим, где отдел теряет деньги, и внедряем систему: скрипты, регламенты, CRM и управление по цифрам. В среднем за 1,5-3 месяца</p>
+        <div class="btn-row"><a class="btn btn--primary" href="https://t.me/emberg_manasaryan">Записаться на разбор<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a><a class="btn btn--secondary" href="#formats">Услуги и цены</a></div>
+      </div>
+      <div class="hero__media span-6 start-7">
+        <img src="emberg.webp" alt="Эмберг Манасарян, основатель Эмберг.Консалтинг" style="--ly-pos: 50% 30%" fetchpriority="high" data-source="client" data-subject="основатель">
+        <div class="ly-float">
+          <div class="ly-float__row"><span class="ly-live">Разбор отдела продаж</span><span>1,5 часа</span></div>
+          <div class="ly-float__title">9 тыс. ₽, засчитаем в первую оплату</div>
+        </div>
+      </div>
+    </div></div>
+  </section>
+
+  <section class="section" id="problems" aria-labelledby="problems-h">
+    <div class="wrap grid grid--top">
+      <div class="span-6 stack-5">
+        <div class="section-head"><h2 id="problems-h">Почему вложения в отдел продаж не окупаются</h2></div>
+        <ul class="rows">
+          <li><span class="rows__name">Заявки есть, а продаж мало<small>Вы платите за маркетинг, а отдел сливает клиентов и не закрывает сделки</small></span></li>
+          <li><span class="rows__name">Всё держится на сильных сотрудниках<small>Ушёл РОП - схема встала. Ушёл лучший менеджер - увёл клиентов</small></span></li>
+          <li><span class="rows__name">CRM для галочки<small>Сделки живут в мессенджерах, в CRM их заносят перед планёркой</small></span></li>
+          <li><span class="rows__name">Скрипты и регламенты есть, но не работают<small>В бою их никто не использует, менеджеры продают «как привыкли»</small></span></li>
+        </ul>
+      </div>
+      <div class="panel span-6 start-7" style="--p-h: 460px">
+        <div class="stage"><div class="at-rise fit" style="--fit-max:440px;--ax:max(24px, 50% - 220px);--ay:56px;--ay-sm:24px">
+          <div class="ui ui-panel ui-stat" data-ui="stat" data-from="46" data-to="46" data-suffix="%">
+            <div class="ui-stat__head">
+              <div class="ui-stat__top"><span class="ui-stat__label">Заявки, дошедшие до звонка</span><span class="ui-stat__range">Июнь</span></div>
+              <div class="ui-stat__line"><span class="ui-stat__num" data-stat-num>46%</span><span class="ui-stat__sub">138 заявок, 64 звонка</span></div>
+            </div>
+            <div class="ui-stat__chart">
+              <svg class="ui-stat__svg" viewBox="0 0 400 120" preserveAspectRatio="none" aria-hidden="true">
+                <path class="ui-stat__grid" d="M0 30.5H400M0 60.5H400M0 90.5H400"/>
+                <path class="ui-stat__cover" fill-rule="evenodd" d=""/>
+                <g class="ui-stat__bars"><rect rx="3" x="0" y="20" width="21" height="100"/><rect rx="3" x="29" y="58" width="21" height="62"/><rect rx="3" x="58" y="26" width="21" height="94"/><rect rx="3" x="87" y="64" width="21" height="56"/><rect rx="3" x="117" y="30" width="21" height="90"/><rect rx="3" x="146" y="70" width="21" height="50"/><rect rx="3" x="175" y="24" width="21" height="96"/><rect rx="3" x="204" y="62" width="21" height="58"/><rect rx="3" x="233" y="34" width="21" height="86"/><rect rx="3" x="262" y="72" width="21" height="48"/><rect rx="3" x="291" y="28" width="21" height="92"/><rect rx="3" x="321" y="66" width="21" height="54"/><rect rx="3" x="350" y="22" width="21" height="98"/><rect rx="3" x="379" y="64" width="21" height="56"/></g>
+              </svg>
+              <div class="ui-stat__axis" aria-hidden="true"><span>Заявки</span><span>Звонки</span><span>30 июня</span></div>
+            </div>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section ground-surface" id="why" style="--hm: 2" aria-labelledby="why-h">
+    <div class="wrap grid grid--top">
+      <div class="span-6 stack-5">
+        <div class="section-head"><h2 id="why-h">Почему в этот раз получится</h2></div>
+        <ul class="rows">
+          <li><span class="rows__name">Начинаем с фундамента<small>Сначала разбираемся, кто ваш клиент и как вы продаёте, потом пишем скрипты</small></span></li>
+          <li><span class="rows__name">Слышим команду<small>Собираем фактуру у менеджеров, поэтому инструменты не саботируют</small></span></li>
+          <li><span class="rows__name">Не идём дальше без приёмки<small>Каждый инструмент согласовываете вы и команда</small></span></li>
+          <li><span class="rows__name">Всё остаётся у вас<small>Регламенты, скрипты и база знаний - в Notion и CRM</small></span></li>
+          <li><span class="rows__name">Работает команда и не пропадает<small>Методист, профильные специалисты и бесплатный аудит после проекта</small></span></li>
+        </ul>
+      </div>
+      <div class="panel span-6 start-7" style="--p-h: 520px">
+        <div class="stage"><div class="at-rise fit" style="--fit-max:400px;--ax:max(24px, 50% - 200px);--ay:56px;--ay-sm:24px">
+          <div class="ui ui-panel ui-checks" data-ui="checklist">
+            <div class="ui-checks__head"><div class="ui-title">Приёмка инструментов</div><span class="ui-spacer"></span><div class="ui-meta" data-checks-count>3 из 5</div></div>
+            <div class="ui-checks__bar"><i data-checks-bar style="--k:0.6"></i></div>
+            <ul class="ui-checks__list">
+              <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Портрет клиента и воронки</span></li>
+              <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Скрипт первого звонка</span></li>
+              <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Регламент работы с лидами</span></li>
+              <li class="ui-check"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Мотивация менеджеров</span></li>
+              <li class="ui-check"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Ежедневный план-факт</span></li>
+            </ul>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="process" style="--h: 2; --hm: 1" data-moment="pinned-chapters" aria-labelledby="process-h">
+    <div class="wrap mo-pc__grid">
+      <div class="mo-pc__text">
+        <h2 id="process-h">4 этапа от разбора до работающей системы</h2>
+        <ol class="mo-pc__steps">
+          <li class="mo-pc__step">
+            <h3>Фундамент</h3>
+            <p>Определяем, кто ваш целевой клиент и как найти с ним общий язык</p>
+            <figure class="mo-pc__visual"><div class="stage-doc"><div class="stage-doc__head"><span>Этап 1</span><span>Фундамент</span></div><ul><li>Замер точки А - цифры для сравнения результата</li><li>CustDev: почему клиенты покупают и почему уходят</li><li>Позиционирование и портрет идеального клиента</li><li>Путь клиента и воронки продаж</li><li>Юнит-экономика и план продаж до дня менеджера</li></ul></div></figure>
+          </li>
+          <li class="mo-pc__step">
+            <h3>Инструменты</h3>
+            <p>Даём менеджерам всё, чтобы каждая заявка доходила до сделки</p>
+            <figure class="mo-pc__visual"><div class="stage-doc"><div class="stage-doc__head"><span>Этап 2</span><span>Инструменты</span></div><ul><li>Работа с лидами: входящие, исходящие, отказники</li><li>Техзадание на CRM, настройка и интеграции</li><li>Скрипты, ответы на возражения и FAQ</li><li>Сценарий встречи и шаблон КП</li><li>Цепочки дожима и база знаний отдела</li></ul></div></figure>
+          </li>
+          <li class="mo-pc__step">
+            <h3>Управление</h3>
+            <p>Делаем так, чтобы отдел работал по цифрам, а не держался на собственнике</p>
+            <figure class="mo-pc__visual"><div class="stage-doc"><div class="stage-doc__head"><span>Этап 3</span><span>Управление</span></div><ul><li>Профили должностей и мотивация от маржи</li><li>Регламенты менеджеров</li><li>Ежедневный план-факт: проседание видно за неделю</li><li>Дашборд собственника из CRM</li><li>Ритм планёрок, профиль и ввод РОПа</li></ul></div></figure>
+          </li>
+          <li class="mo-pc__step">
+            <h3>Контрольные аудиты</h3>
+            <p>Возвращаемся после проекта, чтобы сохранить и усилить результат</p>
+            <figure class="mo-pc__visual"><div class="stage-doc"><div class="stage-doc__head"><span>Этап 4</span><span>Аудиты</span></div><ul><li>Встречи через 1 и 3 месяца после проекта</li><li>Сверка цифр с точкой А</li><li>Аудит записей встреч и переписок</li><li>Правки в инструменты после встречи</li></ul></div></figure>
+          </li>
+        </ol>
+      </div>
+      <div class="mo-pc__visuals frame"></div>
+    </div>
+  </section>
+
+
+  <section class="section ground-surface g2" id="formats" aria-labelledby="formats-h">
+    <div class="wrap">
+      <div class="group grid grid--top">
+        <div class="span-5 stack-5">
+          <div class="section-head">
+            <h2 id="formats-h">Начните с разбора отдела продаж</h2>
+            <p>Эмберг лично разбирает, как приходят лиды, где они теряются и что мешает расти. На выходе план, который можно начать выполнять на следующей неделе</p>
+          </div>
+          <div class="price"><span class="t-stat">9 тыс. ₽</span><span class="muted">1,5 часа + подготовка</span></div>
+          <div class="btn-row"><a class="btn btn--primary" href="https://t.me/emberg_manasaryan">Записаться на разбор</a></div>
+        </div>
+        <ul class="rows span-6 start-7">
+          <li><span class="rows__name">Точки утечки денег<small>И какая из них стоит вам дороже всего</small></span></li>
+          <li><span class="rows__name">Дорожная карта на квартал<small>Какие инструменты нужны и в каком порядке их строить</small></span></li>
+          <li><span class="rows__name">Срок построения<small>Реалистичный срок, за который отдел станет управляемым</small></span></li>
+          <li><span class="rows__name">Резюме встречи через 2 часа<small>Остаётся у вас, даже если не продолжите</small></span></li>
+          <li><span class="rows__name">Зачёт стоимости<small>9 тыс. ₽ засчитаем в первую оплату проекта</small></span></li>
+        </ul>
+      </div>
+      <div class="group stack-5">
+        <p class="t-card">Дальше - построение в одном из 3 форматов</p>
+        <div class="grid">
+        <article class="card card--plan span-4">
+          <h3>Своей командой</h3>
+          <p class="t-small muted">Задача типовая, бюджет ограничен, есть сотрудник под проект</p>
+          <div class="price"><span class="t-stat">20 тыс. ₽</span><span class="muted">/ неделя</span></div>
+          <a class="btn btn--secondary" href="https://t.me/emberg_manasaryan">Обсудить формат</a>
+          <ul class="rows rows--spec">
+            <li><span class="rows__name">Ваше время</span><span class="rows__value">6-10 ч в неделю</span></li>
+            <li><span class="rows__name">Инструменты делает</span><span class="rows__value">Ваша команда по методике</span></li>
+            <li><span class="rows__name">После проекта</span><span class="rows__value">Встреча через месяц</span></li>
+          </ul>
+        </article>
+        <article class="card card--plan is-featured span-4">
+          <span class="badge">Рекомендуем</span>
+          <h3>Нашей командой</h3>
+          <p class="t-small muted">Задача нестандартная, нужна помощь во внедрении</p>
+          <div class="price"><span class="t-stat">40 тыс. ₽</span><span class="muted">/ неделя</span></div>
+          <a class="btn btn--primary" href="https://t.me/emberg_manasaryan">Обсудить формат</a>
+          <ul class="rows rows--spec">
+            <li><span class="rows__name">Ваше время</span><span class="rows__value">2-3 ч в неделю</span></li>
+            <li><span class="rows__name">Инструменты делает</span><span class="rows__value">Методист и специалисты</span></li>
+            <li><span class="rows__name">После проекта</span><span class="rows__value">Аудиты через 1 и 3 мес</span></li>
+            <li><span class="rows__name">Не принят инструмент</span><span class="rows__value">Пересоберём за неделю</span></li>
+          </ul>
+        </article>
+        <article class="card card--plan span-4">
+          <h3>Специальный проект</h3>
+          <p class="t-small muted">Компания растёт, важно не ошибиться и вырастить команду</p>
+          <div class="price"><span class="t-stat">90 тыс. ₽</span><span class="muted">/ неделя</span></div>
+          <a class="btn btn--secondary" href="https://t.me/emberg_manasaryan">Узнать о свободном месте</a>
+          <ul class="rows rows--spec">
+            <li><span class="rows__name">Ведёт</span><span class="rows__value">Эмберг лично, 1 проект</span></li>
+            <li><span class="rows__name">Плюс</span><span class="rows__value">План развития сотрудников</span></li>
+            <li><span class="rows__name">После проекта</span><span class="rows__value">Аудиты и месяц трекинга</span></li>
+          </ul>
+        </article>
+      </div>
+      <p class="t-small">Любой формат можно прервать и вернуть предоплату за оставшиеся недели. Подробный состав - в КП после разбора</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="cases" style="--hm: 2" aria-labelledby="cases-h">
+    <div class="wrap">
+      <div class="section-head"><h2 id="cases-h">Кейсы: что было и что стало</h2></div>
+      <div class="grid case-cols">
+        <article class="span-4 stack-5">
+          <div class="case-meta"><p class="t-label muted">Сервис для юристов · 7 недель</p><p class="t-card">Выстроили систему B2B-продаж с нуля</p></div>
+          <div><p class="t-label muted">Было</p><ul><li>Одна продажа за всё время</li><li>До бесплатного теста доходили почти все, до оплаты - почти никто</li><li>95% продаж на основателе, сделки - в папках со скриншотами</li></ul></div>
+          <div><p class="t-label muted">Стало</p><ul><li>Тест заканчивается встречей с решением, а не тишиной</li><li>Основатель ведёт 10-15 крупных клиентов, средних - менеджер</li><li>Сделки в таблице по этапам со следующим шагом</li></ul></div>
+        </article>
+        <article class="span-4 stack-5">
+          <div class="case-meta"><p class="t-label muted">Онлайн-школа · 6 недель</p><p class="t-card">Меньше зумов и на 40% больше предоплат</p></div>
+          <div><p class="t-label muted">Было</p><ul><li>До звонка доходило 46% заявок: из 138 лидов - 64 звонка</li><li>Ближайший слот для клиента - через 2-3 дня</li><li>Дожимал клиентов в основном руководитель</li></ul></div>
+          <div><p class="t-label muted">Стало</p><ul><li>Дожим снят с руководителя, его ведёт чатер</li><li>Процент менеджера снизился с 5-9% до 3,5-4%</li><li>Запись на слот сама двигает сделку в CRM</li></ul></div>
+        </article>
+        <article class="span-4 stack-5">
+          <div class="case-meta"><p class="t-label muted">Промышленное снабжение · 12 недель</p><p class="t-card">Разобрали многолетний хаос в оргструктуре</p></div>
+          <div><p class="t-label muted">Было</p><ul><li>3 попытки нанять менеджера активных продаж провалились</li><li>Заявки и КП не фиксировались, конверсия не считалась</li><li>Сотрудники совмещали по 2-3 роли</li></ul></div>
+          <div><p class="t-label muted">Стало</p><ul><li>Собственники каждый день видят заявки и КП по заводам</li><li>Ответ на заявку - 2 рабочих часа, КП - 3 рабочих дня</li><li>Компания нанимает РОПа и менеджера в готовую систему</li></ul></div>
+        </article>
+      </div>
+      <div class="btn-row"><a class="btn btn--primary" href="https://t.me/emberg_manasaryan">Создать новый кейс</a></div>
+    </div>
+  </section>
+
+  <section class="section ground-surface" id="founder" aria-labelledby="founder-h">
+    <div class="wrap grid grid--top">
+      <div class="span-5 stack-6">
+        <div class="section-head"><h2 id="founder-h">Эмберг Манасарян, основатель и автор методологии</h2></div>
+        <p class="founder-quote">Я строю отделы продаж, которые продолжают работать, когда собственник не контролирует каждый шаг. Поэтому продаю не знания, а ответственность за то, что дорожная карта будет внедрена до конца</p>
+        <p class="t-small muted">Ниши: производство, авто, недвижимость, IT и SaaS, образование, B2B-агентства</p>
+      </div>
+      <dl class="stats span-6 start-7">
+        <div><dt class="t-small muted">построенных отделов продаж</dt><dd class="t-stat">10+</dd></div>
+        <div><dt class="t-small muted">предпринимателей лично</dt><dd class="t-stat">70+</dd></div>
+        <div><dt class="t-small muted">оборот клиентов в год</dt><dd class="t-stat">3,5 млрд ₽</dd></div>
+        <div><dt class="t-small muted">самый молодой бизнес-консультант</dt><dd class="t-stat">Resulting</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section g2" id="faq" aria-labelledby="faq-h">
+    <div class="wrap">
+      <div class="group"><div class="grid grid--top">
+        <div class="span-5 stack-4">
+          <h2 id="faq-h">Отвечаем честно</h2>
+          <a class="link" href="https://t.me/emberg_manasaryan">Задать свой вопрос</a>
+        </div>
+        <div class="faq span-6 start-7">
+          <div class="faq__item"><h3>Почему так дорого?</h3><p>Сравнивать стоит с тем, во что обходится отдел без системы: оплаченные заявки уходят без сделки, знания уходят с сильными сотрудниками. Риск на нашей стороне: проект можно прервать и вернуть предоплату за оставшиеся недели</p></div>
+          <div class="faq__item"><h3>Почему так дёшево?</h3><p>Методику мы отработали на десятке отделов продаж, поэтому не изобретаем инструменты с нуля, а адаптируем готовые решения под ваш бизнес</p></div>
+          <div class="faq__item"><h3>Вы гарантируете рост выручки?</h3><p>Нет: на выручку влияют рынок, маркетинг и ваши решения. Мы гарантируем, что дорожная карта будет внедрена целиком, а каждый инструмент вы примете на защите</p></div>
+          <div class="faq__item"><h3>Мы уже платили консультантам. Чем вы отличаетесь?</h3><p>Собираем фактуру у менеджеров, не идём дальше, пока этап не работает, и возвращаемся после проекта проверить, что прижилось</p></div>
+          <div class="faq__item"><h3>Сколько занимает построение?</h3><p>В среднем 1,5-3 месяца. Точный срок называем после разбора</p></div>
+        </div>
+      </div></div>
+      <div class="grid grid--top">
+        <div class="faq span-6 start-7">
+          <div class="faq__item"><h3>Можно ли поставить проект на паузу?</h3><p>Да. «Своей командой» - 1 раз до 2 недель, «Нашей командой» - 2 раза. В «Специальном проекте» обсуждаем индивидуально</p></div>
+          <div class="faq__item"><h3>Есть ли у вас опыт в моей нише?</h3><p>Работаем там, где продажа идёт через звонок, встречу или переписку и есть хотя бы один менеджер. Не берём компании, где клиент выбирает только по цене, наличию и срокам</p></div>
+          <div class="faq__item"><h3>Вы приводите клиентов и нанимаете менеджеров?</h3><p>Нет, мы не продаём за вас. Строим систему, в которой это делает ваша команда. Для найма пишем профили, мотивацию и воронку найма</p></div>
+          <div class="faq__item"><h3>Что будет после проекта?</h3><p>Регламенты, скрипты и база знаний остаются в Notion и CRM. Бесплатно возвращаемся на аудит через 1 месяц, в старших форматах - ещё через 3</p></div>
+          <div class="faq__item"><h3>Работаете удалённо?</h3><p>Да, все встречи проходят в Zoom</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer closing footer--dark ground-inverse" id="contact" aria-labelledby="close-h">
+  <div class="wrap">
+    <div class="closing__cta close--type">
+      <div class="section-head">
+        <h2 id="close-h">Построим план на квартал за 1,5 часа</h2>
+        <p>Разберём точку А, найдём зоны роста и соберём дорожную карту отдела продаж</p>
+      </div>
+      <a class="btn btn--primary btn--xl btn--wide" href="https://t.me/emberg_manasaryan">Записаться на разбор<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+    </div>
+    <div class="closing__links">
+      <div class="grid">
+        <div class="span-4 stack-4">
+          <a class="footer__logo" href="#top" aria-label="Эмберг.Консалтинг, наверх"><img src="logo-white.svg" alt="" width="186" height="34"></a>
+          <p class="footer__lede">Строим отделы продаж для малого и среднего бизнеса</p>
+        </div>
+        <div class="span-2 footer__col"><h3>Разделы</h3><ul><li><a href="#why">Почему мы</a></li><li><a href="#process">Как устроена работа</a></li><li><a href="#cases">Кейсы</a></li><li><a href="#formats">Услуги</a></li><li><a href="#faq">Вопросы</a></li></ul></div>
+        <div class="span-3 footer__col"><h3>Контакты</h3><ul><li><a href="https://t.me/emberg_manasaryan">Telegram: @emberg_manasaryan</a></li><li><a href="https://instagram.com/emberg_consulting">Instagram*: @emberg_consulting</a></li><li><a href="mailto:emberg.work@mail.ru">emberg.work@mail.ru</a></li></ul></div>
+        <div class="span-3 footer__col"><h3>Документы</h3><ul><li><a href="../privacy.html">Политика обработки данных</a></li><li><a href="../consent.html">Согласие на обработку данных</a></li><li><a href="../cookies.html">Политика cookie</a></li></ul></div>
+      </div>
+      <div class="footer__legal">
+        <span>&copy; 2026 Эмберг.Консалтинг · ИП Манасарян Эмберг Грантович · ИНН 774344096686 · ОГРНИП 326774600431210</span>
+        <span>Цены не являются публичной офертой · *Instagram принадлежит компании Meta, признанной экстремистской и запрещённой в РФ</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<nav class="actionbar" aria-label="Быстрые действия">
+  <a class="btn btn--primary" href="https://t.me/emberg_manasaryan">Записаться на разбор</a>
+</nav>
+
+<script type="module" src="assets/system.js"></script>
+<script type="module" src="assets/motion/motion.js"></script>
+<script type="module" src="assets/layout/layout.js"></script>
+</body>
+</html>
